@@ -13,13 +13,15 @@ public interface FacturaService {
 
     List<FacturaResumenResponseDto> listarFacturas();
 
-    FacturaResponseDto crearFactura(FacturaRequestDto facturaRequestDto);
+    FacturaResumenResponseDto crearFactura(FacturaRequestDto facturaRequestDto);
 
-    FacturaResponseDto modificarParcialFactura(UUID id, FacturaRequestDto facturaRequestDto);
+    FacturaResumenResponseDto modificarParcialFactura(UUID id, FacturaRequestDto facturaRequestDto);
 
     FacturaResponseDto eliminarFactura(UUID id);
 
-    List<FacturaResponseDto> encontrarFacturasEntreFechas(LocalDateTime inicio, LocalDateTime fin);
+    List<FacturaResumenResponseDto> encontrarFacturasEntreFechas(LocalDateTime inicio, LocalDateTime fin);
 
-    List<FacturaResponseDto> encontrarFacturaPorFecha(LocalDateTime fecha);
+    List<FacturaResumenResponseDto> encontrarFacturaPorFecha(LocalDateTime fecha);
+
+    FacturaResponseDto obtenerFacturaCompleta(UUID id);
 }
