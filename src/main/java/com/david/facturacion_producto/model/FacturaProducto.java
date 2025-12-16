@@ -1,6 +1,7 @@
 package com.david.facturacion_producto.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class FacturaProducto {
     @JoinColumn(name = "producto_id", nullable = false)
     private Producto producto;
     @Column(nullable = false)
+    @Positive
     private Integer cantidad;
     @Column(name = "precio_unitario", nullable = false, precision = 10, scale = 2)
     private BigDecimal precioUnitario;
