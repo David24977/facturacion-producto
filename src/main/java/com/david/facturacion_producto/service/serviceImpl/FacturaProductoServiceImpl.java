@@ -9,6 +9,7 @@ import com.david.facturacion_producto.repository.FacturaProductoRepository;
 import com.david.facturacion_producto.repository.FacturaRepository;
 import com.david.facturacion_producto.repository.ProductoRepository;
 import com.david.facturacion_producto.service.FacturaProductoService;
+import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class FacturaProductoServiceImpl implements FacturaProductoService {
     private final FacturaProductoRepository facturaProductoRepository;
     private final FacturaRepository facturaRepository;

@@ -19,6 +19,4 @@ public class FacturaProductoRequestDto {
     @Positive
     private Integer cantidadProducto;
 
-
-
 }

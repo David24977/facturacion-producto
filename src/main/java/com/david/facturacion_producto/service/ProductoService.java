@@ -9,6 +9,8 @@ import java.util.UUID;
 public interface ProductoService {
     List<ProductoResponseDto> listarProductos();
 
+    ProductoResponseDto buscarPorId(UUID id);
+
     ProductoResponseDto crearProducto(ProductoRequestDto productoRequestDto);
 
     ProductoResponseDto modificarProducto(UUID id, ProductoRequestDto productoRequestDto);

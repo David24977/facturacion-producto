@@ -30,6 +30,13 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
+    public ProductoResponseDto buscarPorId(UUID id) {
+        Producto producto = productoRepository.findById(id)
+                .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Producto no encontrado"));
+        return mapToResponse(producto);
+    }
+
+    @Override
     public ProductoResponseDto crearProducto(ProductoRequestDto productoRequestDto) {
        Producto creado = new Producto();
        creado.setNombre(productoRequestDto.getNombreProducto());
