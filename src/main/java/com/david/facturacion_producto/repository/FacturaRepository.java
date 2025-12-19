@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface FacturaRepository extends JpaRepository<Factura, UUID> {
 
-    List<Factura> findFechaBetween(LocalDateTime inicio, LocalDateTime fin);
-
-    List<Factura> findFecha(LocalDateTime fecha);
+    List<Factura> findByFechaBetween(LocalDateTime inicio, LocalDateTime fin);
 }
+
+

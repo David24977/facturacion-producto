@@ -4,5 +4,5 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public record FacturaResumenResponseDto(UUID id, String nombreCliente, LocalDateTime fecha, BigDecimal total) {
+public record FacturaResumenResponseDto(UUID id, String clienteNombre, String clienteEmail, LocalDateTime fecha, BigDecimal total) {
 }

@@ -6,12 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.util.UUID;
+
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class FacturaRequestDto {
-    @NotBlank
-    @Size(min = 3, max = 40)
-    private String clienteNombre;
+    UUID clienteId;
+    BigDecimal iva;
 }

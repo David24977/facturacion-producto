@@ -7,6 +7,7 @@ import com.david.facturacion_producto.service.FacturaService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -35,11 +36,6 @@ public class FacturaController {
         return facturaService.crearFactura(facturaRequestDto);
     }
 
-    @PatchMapping("/{id}")
-    public FacturaResumenResponseDto modificarParcialFactura(@PathVariable UUID id,
-                                                             @RequestBody FacturaRequestDto facturaRequestDto){
-        return facturaService.modificarParcialFactura(id, facturaRequestDto);
-    }
 
     @DeleteMapping("/{id}")
     public FacturaResponseDto eliminarFactura(@PathVariable UUID id){
@@ -47,14 +43,15 @@ public class FacturaController {
     }
 
     @GetMapping(value = "/buscar", params = {"inicio", "fin"})
-    public List<FacturaResumenResponseDto> encontrarFacturasEntreFechas(@RequestParam LocalDateTime inicio,
-                                                                        @RequestParam LocalDateTime fin){
+    public List<FacturaResumenResponseDto> encontrarFacturasEntreFechas(@RequestParam LocalDate inicio,
+                                                                        @RequestParam LocalDate fin){
         return facturaService.encontrarFacturasEntreFechas(inicio, fin);
     }
 
-    @GetMapping(value = "/buscar", params = "fecha")
-    public List<FacturaResumenResponseDto> encontrarFacturaPorFecha(@RequestParam LocalDateTime fecha){
-        return facturaService.encontrarFacturaPorFecha(fecha);
+    @GetMapping(value = "/buscar", params = "{inicio, fin}")
+    public List<FacturaResumenResponseDto> encontrarFacturaPorFecha(@RequestParam LocalDate inicio,
+                                                                    @RequestParam LocalDate fin){
+        return facturaService.encontrarFacturaPorFecha(inicio, fin);
     }
 
 

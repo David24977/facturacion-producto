@@ -5,5 +5,5 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-public record FacturaResponseDto(UUID idFactura, String clienteNombre, LocalDateTime fecha, BigDecimal total, List<FacturaProductoResponseDto> lineas) {
+public record FacturaResponseDto(UUID idFactura, String clienteNombre, String clienteEmail, LocalDateTime fecha, BigDecimal total, List<FacturaProductoResponseDto> lineas) {
 }
